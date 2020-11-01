@@ -1,13 +1,21 @@
+import { Button } from "./Button";
 import { Category } from "./Category";
 import { ListOfCategories } from "./ListOfCategories";
 import { ListOfPhotoCards } from "./ListOfPhotoCards";
+import { ListOfFavs } from "./ListOfFavs";
 import { Logo } from "./Logo";
+import { NavBar } from "./NavBar";
 import { PhotoCard } from "./PhotoCard";
+import { UserForm } from "./UserForm";
 
 export {
+  Button,
   Category,
   ListOfPhotoCards,
   ListOfCategories,
   Logo,
-  PhotoCard
+  ListOfFavs,
+  NavBar,
+  PhotoCard,
+  UserForm
 }
