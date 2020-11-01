@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from "@reach/router";
 import { Article, Button, Img, ImgWrapper } from './styles'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useNearScreen, useLocalStorage } from '../../hooks'
@@ -15,11 +16,11 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={ref}>
       {show &&
         <Fragment>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
 
           <Button>
             <Icon onClick={() => setLike(!like)} size='24px' /> {likes} likes!

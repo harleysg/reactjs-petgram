@@ -6,7 +6,7 @@ const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v15
 
 export const Category = ({ path = '#', cover = DEFAULT_IMAGE, emoji = '❓', name = '' }) => {
   return (
-    <Link href={path}>
+    <Link to={path}>
       <Image src={cover} alt={name}/>
       {emoji}
     </Link>

@@ -10,8 +10,8 @@ export function ListOfCategories () {
   const renderList = useCallback(() => <List>
   {
     loading
-      ? [1,2,3,4,5,6].map(_ => <CategorySkeleton key={_}/>)
-      : categories.map(category => <Item key={category.id}><Category {...category}/></Item>
+      ? [1,2,3,4,5,6].map(_ => <CategorySkeleton key={_}/>) 
+      : categories.map(category => <Item key={category.id}><Category {...category} path={`/pet/${category.id}`}/></Item>
     )
   }
 </List>)
