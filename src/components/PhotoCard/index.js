@@ -1,16 +1,25 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useCallback } from 'react'
 import { Link } from "@reach/router";
 import { Article, Button, Img, ImgWrapper } from './styles'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
-import { useNearScreen, useLocalStorage } from '../../hooks'
+import { useNearScreen, useToogleLike } from '../../hooks'
 
-const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+// const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+const SIZE_ICONS = '24px'
 
-export const PhotoCard = ({ id = 0, likes = 0, src = DEFAULT_IMAGE }) => {
+export const PhotoCard = ({ id = 0, liked: initialLiked, likes = 0, src }) => {
+  const [countLikes, setCountLikes] = useState(likes)
+  const [liked, setLiked] = useState(initialLiked)
   const [show, ref] = useNearScreen()
-  const [like, setLike] = useLocalStorage(`like-${id}`)
+  const {handleLikePhoto} = useToogleLike()
 
-  const Icon = like ? MdFavorite : MdFavoriteBorder
+  const onClickLike = useCallback(() => {
+    const op = liked ? -1 : 1
+    setCountLikes(countLikes + op)
+    setLiked(!liked)
+  }, [liked])
+  
+  const FavIcon = liked ? MdFavorite : MdFavoriteBorder
 
   return (
     <Article ref={ref}>
@@ -22,8 +31,11 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEFAULT_IMAGE }) => {
             </ImgWrapper>
           </Link>
 
-          <Button>
-            <Icon onClick={() => setLike(!like)} size='24px' /> {likes} likes!
+          <Button onClick={() => {
+              handleLikePhoto({ id })
+              onClickLike()
+            }} >
+            <FavIcon size={SIZE_ICONS} /> {countLikes} likes!
           </Button>
         </Fragment>
       }
