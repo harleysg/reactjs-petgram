@@ -1,5 +1,16 @@
 import { useQuery } from '@apollo/react-hooks'
-import { getFavs } from '../hocs/getFavs'
+import { gql } from 'apollo-boost'
+
+export const getFavs = gql`
+query getFavs {
+  favs {
+    id
+    categoryId
+    src
+    likes
+    userId
+  }
+}`
 
 export const useFavsQuery = () => {
   const { loading, error, data: {favs = []} = {} } = useQuery(getFavs)
