@@ -1,34 +1,29 @@
-import React from 'react'
-import { Router } from '@reach/router'
+import React, {useContext} from 'react'
+import { Redirect, Router } from '@reach/router'
 
-import Context from '../Context'
+import {Context} from '../Context'
 
 import { Home } from "./Home";
 import { Detail } from "./Detail";
 import { Favs } from "./Favs";
-import { User as Profile } from "./User";
+import { NotFound } from './NotFound'
 import { NotRegistered } from "./NotRegister";
+import { User } from "./User";
 
 export function Routes () {
+  const { isAuth } = useContext(Context)
   return <>
     <Router>
+      <NotFound default />
       <Home path='/' />
       <Home path='/pet/:id' />
       <Detail path='/detail/:id' />
+      {!isAuth && <NotRegistered path='/login' />}
+      {!isAuth && <Redirect from='/favs' to='/login' />}
+      {!isAuth && <Redirect from='/user' to='/login' />}
+      {isAuth && <Redirect from='/login' to='/' />}
+      <Favs path='favs' />
+      <User path='user' />
     </Router>
-    <Context.Consumer>
-      {
-        ({ isAuth }) =>
-          isAuth
-            ? <Router>
-              <Favs path='favs' />
-              <Profile path='user' />
-            </Router>
-              : <Router>
-                <NotRegistered path='favs' />
-                <NotRegistered path='user' />
-            </Router>
-        }
-    </Context.Consumer>
   </>
 }
