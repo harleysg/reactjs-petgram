@@ -1,5 +1,6 @@
 import { Button } from "./Button";
 import { Category } from "./Category";
+import { Layout } from './Layout'
 import { ListOfCategories } from "./ListOfCategories";
 import { ListOfPhotoCards } from "./ListOfPhotoCards";
 import { ListOfFavs } from "./ListOfFavs";
@@ -11,6 +12,7 @@ import { UserForm } from "./UserForm";
 export {
   Button,
   Category,
+  Layout,
   ListOfPhotoCards,
   ListOfCategories,
   Logo,
