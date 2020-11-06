@@ -4,7 +4,7 @@ import { navigate } from '@reach/router'
 export const Context = createContext()
 
 export const Provider = ({ children }) => {
-  const initialAuth = Boolean(window.localStorage.getItem('token'))
+  const initialAuth = Boolean(window.sessionStorage.getItem('token'))
   const [isAuth, setIsAuth] = useState(initialAuth)
 
   const value = {
