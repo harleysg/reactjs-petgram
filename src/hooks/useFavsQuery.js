@@ -13,7 +13,8 @@ query getFavs {
 }`
 
 export const useFavsQuery = () => {
-  const { loading, error, data: {favs = []} = {} } = useQuery(getFavs)
+  const { loading, error, data = {} } = useQuery(getFavs, {fetchPolicy: "cache-and-network"})
+  const { favs = [] } = data
   return {
     loading,
     error,
