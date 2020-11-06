@@ -50,7 +50,8 @@
   },
   "standard": {
     "ignore": [
-      "api/**"
+      "api/**",
+      "dist/**"
     ]
   },
   "eslintConfing": {
