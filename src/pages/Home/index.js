@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ListOfCategories, ListOfPhotoCards } from '../../components'
+import { Layout, ListOfCategories, ListOfPhotoCards } from '../../components'
 
 export const Home = ({ id }) => {
-  return <>
+  return <Layout>
   <ListOfCategories/>
   <ListOfPhotoCards categoryId={id}/>
-</>
+</Layout>
 }

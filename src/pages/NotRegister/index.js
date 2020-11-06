@@ -1,6 +1,6 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../Context'
-import { UserForm } from '../../components'
+import { UserForm, Layout } from '../../components'
 import { useRegister, useLogin  } from '../../hooks'
 
 export const NotRegistered = () => {
@@ -17,7 +17,7 @@ export const NotRegistered = () => {
   }
 
   return (
-    <Fragment>
+    <Layout>
       <UserForm 
         disabled={LoginRegister}
         error={errorRegister}
@@ -28,6 +28,6 @@ export const NotRegistered = () => {
         error={errorLogin}
         title='Iniciar sesión'
         onSubmit={handleLogin} />
-    </Fragment>
+    </Layout>
   )
 }
