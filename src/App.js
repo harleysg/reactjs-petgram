@@ -15,7 +15,7 @@ export function  App () {
     </Helmet>
     <GlobalStyles/>
     <Logo />
-      <Routes />
+    <Routes />
     <NavBar />
   </>
 }
