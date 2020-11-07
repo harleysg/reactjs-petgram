@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import PropTypes from 'prop-types'
 
 import { List, Item } from './styles'
 
@@ -17,4 +18,8 @@ export const ListOfPhotoCards = ({categoryId}) => {
       {photos.map((photo, id) => <Item key={id}><PhotoCard {...photo} /></Item>)}
     </List>
   )
+}
+
+ListOfPhotoCards.propTypes = {
+  categoryId: PropTypes.number.isRequired
 }

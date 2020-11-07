@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useCallback } from 'react'
 import { Link } from "@reach/router";
+import PropTypes from 'prop-types'
+
 import { Article, Button, Img, ImgWrapper } from './styles'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useNearScreen, useToogleLike } from '../../hooks'
@@ -41,4 +43,20 @@ export const PhotoCard = ({ id = 0, liked: initialLiked, likes = 0, src }) => {
       }
     </Article>
   )
+}
+
+PhotoCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  liked: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  likes: (props, propName, componentName) => {
+    const propValue = props[propName]
+    if(propValue === undefined) {
+      return new Error(`💥 ${propName} value must be defined ❗`)
+    }
+    
+    if( propValue < 0 ) {
+      return new Error(`💥 ${propName} value must be grater than 0 ❗`)
+    }
+  }
 }

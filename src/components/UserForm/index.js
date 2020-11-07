@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+
 import { useInputValue } from '../../hooks/useInputValue'
 import { Error, Form, Input, Title } from './styles'
 import { Button } from '../Button'
@@ -23,4 +25,12 @@ export const UserForm = ({ disabled, error, title, onSubmit }) => {
       {error && <Error>{error}</Error>}
     </Fragment>
   )
+}
+
+
+UserForm.propTypes = {
+  disabled: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
