@@ -21,5 +21,5 @@ export const ListOfPhotoCards = ({categoryId}) => {
 }
 
 ListOfPhotoCards.propTypes = {
-  categoryId: PropTypes.number.isRequired
+  categoryId: PropTypes.string
 }

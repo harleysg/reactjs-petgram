@@ -29,8 +29,8 @@ export const UserForm = ({ disabled, error, title, onSubmit }) => {
 
 
 UserForm.propTypes = {
-  disabled: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
   title: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired
 }

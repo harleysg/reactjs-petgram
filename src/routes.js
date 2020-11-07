@@ -22,9 +22,9 @@ export function Routes () {
       <Home path='/pet/:id' />
       <Detail path='/detail/:id' />
       {!isAuth && <NotRegistered path='/login' />}
-      {!isAuth && <Redirect from='/favs' to='/login' />}
-      {!isAuth && <Redirect from='/user' to='/login' />}
-      {isAuth && <Redirect from='/login' to='/' />}
+      {!isAuth && <Redirect noThrow from='/favs' to='/login' />}
+      {!isAuth && <Redirect noThrow from='/user' to='/login' />}
+      {isAuth && <Redirect noThrow from='/login' to='/' />}
       <Favs path='favs' />
       <User path='user' />
     </Router>
