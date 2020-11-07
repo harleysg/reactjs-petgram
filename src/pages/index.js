@@ -1,29 +1,17 @@
-import React, {useContext} from 'react'
-import { Redirect, Router } from '@reach/router'
+import { lazy } from 'react'
 
-import {Context} from '../Context'
+const Home = lazy(() => import('./Home'))
+const Detail = lazy(() => import('./Detail'))
+const Favs = lazy(() => import('./Favs'))
+const NotFound = lazy(() => import('./NotFound'))
+const NotRegistered = lazy(() => import('./NotRegister'))
+const User = lazy(() => import('./User'))
 
-import { Home } from "./Home";
-import { Detail } from "./Detail";
-import { Favs } from "./Favs";
-import { NotFound } from './NotFound'
-import { NotRegistered } from "./NotRegister";
-import { User } from "./User";
-
-export function Routes () {
-  const { isAuth } = useContext(Context)
-  return <>
-    <Router>
-      <NotFound default />
-      <Home path='/' />
-      <Home path='/pet/:id' />
-      <Detail path='/detail/:id' />
-      {!isAuth && <NotRegistered path='/login' />}
-      {!isAuth && <Redirect from='/favs' to='/login' />}
-      {!isAuth && <Redirect from='/user' to='/login' />}
-      {isAuth && <Redirect from='/login' to='/' />}
-      <Favs path='favs' />
-      <User path='user' />
-    </Router>
-  </>
+export {
+  Home,
+  Detail,
+  Favs,
+  NotFound,
+  NotRegistered,
+  User,
 }

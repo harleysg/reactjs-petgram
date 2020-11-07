@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Routes } from './pages'
+import { Routes } from './routes'
 import { Logo, NavBar } from './components'
 
 import { GlobalStyles } from "./styles";
@@ -15,7 +15,7 @@ export function  App () {
     </Helmet>
     <GlobalStyles/>
     <Logo />
-    <Routes />
+      <Routes />
     <NavBar />
   </>
 }

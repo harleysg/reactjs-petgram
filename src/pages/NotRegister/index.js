@@ -3,7 +3,7 @@ import { Context } from '../../Context'
 import { UserForm, Layout } from '../../components'
 import { useRegister, useLogin  } from '../../hooks'
 
-export const NotRegistered = () => {
+const NotRegistered = () => {
   const { activateAuth } = useContext(Context)
   const {errorRegister, LoginRegister, register} = useRegister()
   const {errorLogin, loadingLogin, login} = useLogin()
@@ -31,3 +31,5 @@ export const NotRegistered = () => {
     </Layout>
   )
 }
+
+export default NotRegistered

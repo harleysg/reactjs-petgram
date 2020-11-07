@@ -4,7 +4,7 @@ import { Context } from '../../Context'
 import { Button, Layout } from "../../components";
 import { Grid } from './styles'
 
-export function User () {
+export default function User () {
   const { removeAuth } = useContext(Context)
   return (
     <Layout title='Profile'>
