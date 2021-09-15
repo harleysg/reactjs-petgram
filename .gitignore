@@ -2,4 +2,11 @@ dist/
 node_modules/
 ./package-lock.json
 .vercel
+
+## VSCode
 *.code-workspace
+settings.json
+
+## files
+
+*.zip
